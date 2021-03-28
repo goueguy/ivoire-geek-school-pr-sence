@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,11 +24,18 @@
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">john</a>
+                <a class="nav-link active" aria-current="page" href="#"><?php if(isset($_SESSION['nom'])){ echo $_SESSION['nom'];}?></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-sign-out"></i>Déconnexion</a>
-            </li>
+            <?php 
+                if(isset($_SESSION['id'])){
+                    ?>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="logout.php"><i class="fa fa-sign-out"></i>Déconnexion</a>
+                    </li>
+                    <?php
+                }
+            ?>
+            
         </ul>
         </div>
     </div>
@@ -68,22 +78,25 @@
                 </div>
                 <!-- LOGIN FORMULAIRE-->
                 <div class="col-lg-6">
-                        <form action="traitementLogin.php" method="POST" onsubmit="">
+                        <form action="traitementLogin.php" method="POST" 
+                        >
                             <h4 class="form-title">LOGIN</h4>
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" name="email" placeholder="Adresse email">
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Adresse email">
+                                        <span class="text-danger font-weight-bold" id="error"></span>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <input type="password" class="form-control" name="password" placeholder="Mot de passe">
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe">
+                                        <span class="text-danger font-weight-bold" id="erreurmotdepasse"></span>
                                     </div>
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-success" name="btn-inscrire">SE CONNECTER</button>
+                                        <button type="submit" class="btn btn-success" name="btn-login">SE CONNECTER</button>
                                     </div>
                                 </div>
                             </div>
@@ -93,5 +106,6 @@
             
         </div>
     </section>
+    <script src="js/script.js"></script>
 </body>
 </html>
