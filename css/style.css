@@ -1,3 +1,6 @@
+body{
+  background-color: #F9FAFC;
+}
 .form-title{
   text-align: center;
 }
@@ -15,7 +18,7 @@ footer{
   width:100%;
   color:#fff;
   bottom:0;
-  position: absolute;
+  position: fixed;
 }
 footer p{
   margin:10px auto;
@@ -29,4 +32,15 @@ a{
 }
 .btn-color:hover{
   background-color: #ED7C2B;
+}
+#loginForm,#registerForm{
+  margin-bottom: 70px;
+}
+.loginImage{
+  width:350px;
+  height:350px;
+}
+.registerLink,.loginLink{
+  color:#000;
+  font-size: 12.5px;
 }

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src=""></script>
-    <title>LOGIN</title>
+    <title>INSCRIPTION</title>
     <script src="js/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -18,45 +18,54 @@
         include "navbar.php";
         if(!isset($_SESSION['id'])){
             ?>
-                <section id="loginForm" class="mt-5">
+                <section id="registerForm" class="mt-5">
                     <div class="container">
                         <div class="row">
                             <!-- INSCRIPTION FORMULAIRE -->
                             <div class="col-lg-6">
-                                <img src="images/login.png" class="loginImage" alt="">
+                                <img src="images/register.png" class="loginImage" alt="">
                             </div>
-                            <!-- LOGIN FORMULAIRE-->
                             <div class="col-lg-6">
-                                    <form action="traitementLogin.php" method="POST" 
-                                    onsubmit="return validerLogin();">
-                                        <h4 class="form-title">LOGIN</h4>
-                                        <p class="text-center">(Connectez-vous à votre compte)</p>
+                                    <form action="saveInscription.php" method="post" onsubmit="return validerInscription();">
+                                        <h4 class="form-title">INSCRIPTION</h4>
+                                        <p class="text-center">S'enregistrer (c'est gratuit)</p>
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <input type="email" class="form-control" name="email" id="email" placeholder="Adresse email">
-                                                    <span class="text-danger font-weight-bold" id="error"></span>
+                                                    <input type="text" class="form-control" name="nom" placeholder="Nom">
+                                                    <span id="erreurNom"></span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe">
-                                                    <span class="text-danger font-weight-bold" id="erreurmotdepasse"></span>
+                                                    <input type="text" class="form-control" name="prenoms" placeholder="Prénoms">
+                                                    <span id="erreurPrenoms"></span>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-5">
+                                            <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <button type="submit" class="btn btn-success btn-color btn-block" name="btn-login">SE CONNECTER</button>
+                                                    <input type="email" class="form-control" name="email" placeholder="Adresse email">
+                                                    <span id="erreurEmail"></span>
                                                 </div>
-                                               
                                             </div>
-                                            <div class="col-lg-7">
-                                                <a href="inscription.php" class="text-center loginLink"><i class="fa fa-link"></i>&nbsp;Cliquez ici si vous n'avez pas de compte</a>
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control" name="password" placeholder="Mot de passe">
+                                                    <span id="erreurPassword"></span>
+                                                </div>
                                             </div>
-                                           
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-primary btn-color btn-block" name="btn-inscrire">S'INSCRIRE</button>
+                                                </div>
+                                            </div>
+                                            <div  class="col-lg-6">
+                                                <a href="index.php" class="text-center registerLink"><i class="fa fa-link"></i>&nbsp;Cliquez ici si vous avez un compte</a>
+                                            </div>
                                         </div>
                                     </form>
                             </div>
+                            
                         </div>
                     </div>
                 </section>

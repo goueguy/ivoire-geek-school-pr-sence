@@ -8,10 +8,10 @@
                 <ul class="navbar-nav ml-auto">
                     <?php 
                         if(isset($_SESSION['id'])){
-                            $urlPage = $_SERVER['HTTP_HOST'].''.$_SERVER['REQUEST_URI'];
+                           
                             ?>
                                 <li class="nav-item">
-                                    <a class="nav-link <?= ($urlPage==="http://localhost/igs-presence/index.php") ? 'OK':''?> "  href='ajouter.php'> <i class="fa fa-plus"></i>&nbsp;Ajouter une présence</a>
+                                    <a class="nav-link"  href='ajouter.php'> <i class="fa fa-plus"></i>&nbsp;Ajouter une présence</a>
                                 </li> 
                                 <li class="nav-item">
                                     <a class="nav-link " aria-current="page" href="index.php"><i class="fa fa-list"></i>&nbsp;Liste des Présences</a>
