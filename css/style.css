@@ -1,3 +1,32 @@
 .form-title{
   text-align: center;
 }
+img#logo{
+  width:40px !important;
+  height:40px !important;
+}
+.apps-title{
+  border:1px solid #000;
+  border-radius: 10px;
+}
+footer{
+  background-color: #1A1A1A;
+  height:auto;
+  width:100%;
+  color:#fff;
+  bottom:0;
+  position: absolute;
+}
+footer p{
+  margin:10px auto;
+}
+a{
+  color:#fff;
+}
+.btn-color{
+  background-color: #163D92;
+  border: none;
+}
+.btn-color:hover{
+  background-color: #ED7C2B;
+}

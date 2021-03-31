@@ -27,3 +27,17 @@ function validateEmail(email){
     let emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
     return emailReg.test(email);
 }
+
+function validateAddForm(){
+   
+   let statut = document.getElementsByName("statut")[0].value;
+   if(statut==""){
+       let error = document.querySelector("#error");
+       error.textContent = "ce champ est requis";
+       return false;
+   }else if(statut !== "Oui"){
+        let error = document.querySelector("#error");
+        error.textContent = "Ce champ doit contenir uniquement Oui";
+        return false;
+   }
+}

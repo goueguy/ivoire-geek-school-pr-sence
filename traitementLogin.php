@@ -21,7 +21,6 @@ if(isset($_POST['btn-login'])){
     $query->bindValue(":email",$email, PDO::PARAM_STR);
     $query->execute();
     $data = $query->fetch();
-    
     if($query->rowCount() > 0){
         session_start();
         $_SESSION['id'] = $data['id'];
