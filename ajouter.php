@@ -1,5 +1,7 @@
 <?php 
 session_start();
+include_once "app/Constants/Config.php";
+include_once "app/Functions/Form.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,20 +9,22 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo ASSETS_PATH."css/bootstrap.min.css";?>">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>ACCUEIL</title>
+    <script src="<?php echo ASSETS_PATH."js/jquery.min.js";?>"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<?php echo ASSETS_PATH."css/style.css";?>">
 </head>
 <body>
     <?php 
-        include "navbar.php";
+      include_once VIEWS_INCLUDES_PATH."navbar.php";
+      enregistrerPresence();
     ?>
     <div class="container mt-4">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 mt-5">
-                <form action="validerpresence.php" method="POST" onsubmit="return validateAddForm();">
+                <form action="" method="POST" onsubmit="return validateAddForm();">
                     <h4 class="form-title">Présence pour la date d'Aujourd'hui: <b><?php echo date("d-m-Y");?></b></h4>
                     <div class="row">
                         <div class="col-lg-12">
@@ -41,15 +45,7 @@ session_start();
             </div>
         </div>
     </div>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p class="copyright">&copy; Copyright-2021, <a href="https://ivoiregeekschool.com" target='_blank'>Ivoire Geek School</a></p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script src="js/script.js"></script>
+    <?php include VIEWS_INCLUDES_PATH."footer.php"; ?>
+    <script src="<?php echo ASSETS_PATH."js/script.js";?>"></script>
 </body>
 </html>

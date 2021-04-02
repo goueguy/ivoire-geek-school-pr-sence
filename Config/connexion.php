@@ -1,5 +1,4 @@
 <?php 
-
 $servername = "localhost";
 $database_name ="bd_presence";
 $username = "root";

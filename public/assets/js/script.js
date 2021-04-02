@@ -39,37 +39,59 @@ function validerInscription(){
     //déclaration des variables
     let nom = document.getElementsByName("nom")[0].value;
     let prenoms = document.getElementsByName("prenoms")[0].value;
-    let password = document.getElementsByName("password")[0].value;
+    let genre = document.querySelector('input[name="gender"]:checked');
+    let lieu_habitation = document.getElementsByName("lieu_habitation")[0].value;
+    let telephone = document.getElementsByName("telephone")[0].value;
     let email = document.getElementsByName("email")[0].value;
     let erreurNom = document.querySelector("#erreurNom");
+    let erreurGenre = document.querySelector("#erreurGenre");
     let erreurPrenoms = document.querySelector("#erreurPrenoms");
     let erreurEmail = document.querySelector("#erreurEmail");
-    let erreurPassword = document.querySelector("#erreurPassword");
+    let erreurTelephone = document.querySelector("#erreurTelephone");
+    let erreurHabitation = document.querySelector("#erreurHabitation");
     if(nom==""){
         erreurNom.textContent = "Ce champ est requis";
-        return false;
-    }else if(nom.length < 3){
-        erreurNom.textContent = "Au minimum 3 caractères sont requis";
         return false;
     }else if(prenoms==""){
         erreurPrenoms.textContent = "Ce champ est requis";
         return false;
-    }else if(prenoms.length < 3){
-        erreurPrenoms.textContent = "Au minimum 3 caractères sont requis";
+    }else if(email==""){
+        erreurEmail.textContent = "Ce champ est requis";
+        return false;
+    }else if(telephone==""){
+        erreurTelephone.textContent = "Ce champ est requis et au format 10 chiffres";
+        return false;
+    }else if(!validatePhone(telephone)){
+        erreurTelephone.textContent = "Ce numéro de téléphone n'est pas valide";
         return false;
     }
-    else if(email==""){
+    else if(lieu_habitation==""){
+        erreurHabitation.textContent = "Ce champ est requis";
+        return false;
+    }
+    else if(!validateEmail(email)){
+        erreurEmail.textContent = "Cette adresse n est pas valide";
+        return false;
+    }
+    else if(!genre){
+        erreurGenre.textContent = "Ce champ est requis";
+        return false;
+    }
+    console.log(gender);
+}
+function validerPresence(){
+    let email = document.getElementsByName("email")[0].value;
+    let erreurEmail = document.querySelector("#erreurEmail");
+    if(email==""){
         erreurEmail.textContent = "Ce champ est requis";
         return false;
     }
     else if(!validateEmail(email)){
         erreurEmail.textContent = "Cette adresse email n est pas valide";
         return false;
-    }else if(password==""){
-        erreurPassword.textContent = "Ce champ est requis";
-        return false;
-    }else if(password.length < 8){
-        erreurPassword.textContent = "Au minimum 8 caractères sont requis";
-        return false;
     }
+}
+function validatePhone(phone){
+    let regexPhone = /^\d{10}$/;
+    return phone.match(regexPhone);
 }

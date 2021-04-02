@@ -1,21 +1,26 @@
-<?php session_start();?>
+<?php session_start();
+include_once "app/Constants/Config.php";
+include_once "app/Functions/Form.php";
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo ASSETS_PATH."css/bootstrap.min.css";?>">
     <script src=""></script>
     <title>INSCRIPTION</title>
-    <script src="js/jquery.min.js"></script>
+    <script src="<?php echo ASSETS_PATH."js/jquery.min.js";?>"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<?php echo ASSETS_PATH."css/style.css";?>">
 </head>
 <body>
     <!-- MENU -->
     <?php 
-        include "navbar.php";
+         //navbar
+         include_once VIEWS_INCLUDES_PATH."navbar.php";
+         sauvegarderInscription();
         if(!isset($_SESSION['id'])){
             ?>
                 <section id="registerForm" class="mt-5">
@@ -23,10 +28,10 @@
                         <div class="row">
                             <!-- INSCRIPTION FORMULAIRE -->
                             <div class="col-lg-6">
-                                <img src="images/register.png" class="loginImage" alt="">
+                                <img src="<?php echo PICTURES_PATH."register.png";?>" class="loginImage" alt="">
                             </div>
                             <div class="col-lg-6">
-                                    <form action="saveInscription.php" method="post" onsubmit="return validerInscription();">
+                                    <form action="" method="post" onsubmit="return validerInscription();">
                                         <h4 class="form-title">INSCRIPTION</h4>
                                         <p class="text-center">S'enregistrer (c'est gratuit)</p>
                                         <div class="row">
@@ -137,6 +142,6 @@
             </div>
         </div>
     </footer>
-    <script src="js/script.js"></script>
+    <script src="<?php echo ASSETS_PATH."js/script.js";?>"></script>
 </body>
 </html>
