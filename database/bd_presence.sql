@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mer. 31 mars 2021 à 06:03
+-- Généré le : ven. 02 avr. 2021 à 18:55
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.2
 
@@ -32,7 +32,9 @@ CREATE TABLE `apprenants` (
   `nom` varchar(255) NOT NULL,
   `prenoms` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `mot_de_passe` varchar(255) NOT NULL,
+  `telephone` varchar(50) NOT NULL,
+  `sexe` varchar(8) NOT NULL,
+  `lieu_habitation` varchar(255) NOT NULL,
   `date_inscription` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -40,8 +42,10 @@ CREATE TABLE `apprenants` (
 -- Déchargement des données de la table `apprenants`
 --
 
-INSERT INTO `apprenants` (`id`, `nom`, `prenoms`, `email`, `mot_de_passe`, `date_inscription`) VALUES
-(1, 'tiesco', 'test', 'test@gmail.com', 'test1234', '2021-03-28 22:20:21');
+INSERT INTO `apprenants` (`id`, `nom`, `prenoms`, `email`, `telephone`, `sexe`, `lieu_habitation`, `date_inscription`) VALUES
+(13, 'keita', 'Abdou karim', 'abdou.keita@gmail.com', '0801234556', 'Homme', 'Riviéra Anono', '2021-04-01 06:55:50'),
+(20, 'test', 'test', 'test@gmail.com', '0709162397', 'Homme', 'Cocody Faya', '2021-04-02 05:23:37'),
+(21, 'jilo', 'jilo', 'jlguy@yahoo.fr', '0709162397', 'Homme', 'Cocody Faya', '2021-04-02 05:24:11');
 
 -- --------------------------------------------------------
 
@@ -63,7 +67,36 @@ CREATE TABLE `presence` (
 
 INSERT INTO `presence` (`id`, `id_apprenant`, `date_jour`, `statut`, `date_ajout`) VALUES
 (9, 1, '2021-03-29', 'Oui', '2021-03-29 07:34:44'),
-(10, 1, '2021-03-31', 'Oui', '2021-03-31 05:41:25');
+(10, 1, '2021-03-31', 'Oui', '2021-03-31 05:41:25'),
+(11, 10, '2021-03-31', 'Oui', '2021-03-31 10:32:50'),
+(12, 11, '2021-04-01', 'Oui', '2021-04-01 11:41:51'),
+(13, 12, '2021-04-01', 'Oui', '2021-04-01 04:19:58'),
+(15, 13, '2021-04-02', 'Oui', '2021-04-02 08:34:36'),
+(16, 14, '2021-04-02', 'Oui', '2021-04-02 11:16:01'),
+(17, 21, '2021-04-02', 'Oui', '2021-04-02 05:26:16'),
+(18, 20, '2021-04-02', 'Oui', '2021-04-02 06:43:18');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `prenoms` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `date_ajout` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `nom`, `prenoms`, `email`, `password`, `date_ajout`) VALUES
+(1, 'goueguy', 'jean-louis', 'jlagoueguy@gmail.com', '79aafe839b67b8038ea6a878441ff9a0', '2021-04-01 15:11:58');
 
 --
 -- Index pour les tables déchargées
@@ -82,6 +115,12 @@ ALTER TABLE `presence`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -89,13 +128,19 @@ ALTER TABLE `presence`
 -- AUTO_INCREMENT pour la table `apprenants`
 --
 ALTER TABLE `apprenants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT pour la table `presence`
 --
 ALTER TABLE `presence`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
